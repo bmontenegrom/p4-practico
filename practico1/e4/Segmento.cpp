@@ -3,9 +3,9 @@
 
 Segmento::Segmento(){}
 
-Segmento::Segmento(Punto p1) : fin{p1}{}
+Segmento::Segmento(Punto p1) : inicio{p1}{}
 
-Segmento::Segmento(double x1, double y1, double x2, double y2) : inicio{Punto{x1, y1}}, fin{Punto{x2,y2}}{}
+Segmento::Segmento(double x1, double y1, double x2, double y2) : inicio{Punto(x1, y1)}, fin{Punto(x2,y2)}{}
 
 Segmento::Segmento(Punto p1, Punto p2): inicio{p1}, fin{p2}{}
 
