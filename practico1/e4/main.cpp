@@ -26,7 +26,7 @@ int main()
 
     cout << "creando segmento con puntos p1 y p2\n";
     Segmento s2(p1, p2);
-    cout << "el segmento 21 esta formado por los puntos: \n";
+    cout << "el segmento s1 esta formado por los puntos: \n";
     cout << s1.getInicio() << s1.getFin()<<"\n";
     cout << "el largo de s2 es: ";
     cout << s2.distancia();
