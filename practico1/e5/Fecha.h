@@ -29,6 +29,7 @@ public:
     bool esBisiesto(unsigned int anio) const;
     bool esFinDeMes(unsigned int dia) const;
 
+    friend std::ostream& operator<<(std::ostream& output, const Fecha& fecha);
 };
 
 
