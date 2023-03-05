@@ -1,6 +1,7 @@
 #include "Fecha.h"
 #include <iostream>
 #include <iomanip>
+#include <stdexcept>
 
 using namespace std;
 
@@ -145,12 +146,12 @@ bool Fecha::operator>(const Fecha& fecha) const{return !(*this <= fecha);}
 
 bool Fecha::operator>=(const Fecha& fecha) const{return !(*this < fecha);}
 
-bool Fecha::operator!=(const Fecha& fecha) const{return !(*this == fecha);}
 
 ostream& operator<<(ostream& salida, const Fecha& fecha)
 {
-    cout << setw(4) << setfill(0) << fecha.getAnio() << "/"<< setw(2) << setfill(0) << fecha.getMes() << "/"
-    << setw(2) << setfill(0) << fecha.getDia() << "\n";
+    cout << setw(4) << setfill('0') << fecha.getAnio() << "/"<< setw(2) << fecha.getMes() << "/"
+    << setw(2) << fecha.getDia() << "\n";
+    return salida;
 }
 
 unsigned int Fecha::diferencia(const Fecha& fecha) const
@@ -159,18 +160,19 @@ unsigned int Fecha::diferencia(const Fecha& fecha) const
     Fecha fin;
     if (*this <= fecha)
     {
-        inicio{*this};
-        fin{fecha};
+        inicio =*this;
+        fin = fecha;
     }
     else
     {
-        inicio{fecha};
-        fin{*this};
+        inicio = fecha;
+        fin = *this;
     }
     unsigned int resultado{0};
     while (inicio < fin )
     {
-       ++resultado;
+        inicio.incrementarUnDia();
+        ++resultado;
     }
     
     return resultado;    
